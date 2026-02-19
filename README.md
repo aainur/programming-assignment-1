@@ -55,8 +55,7 @@ Your page must:
 - Display output **directly in HTML** (not just console)  
 - Include a **personalized message** (e.g., “Hello, [Name]”)  
 - Show **calculated value(s)**  
-- Show **category or interpretation** if relevant (e.g., Underweight/Normal/Overweight)  
-
+- Show **category or interpretation** if relevant
 ---
 
 ### Submission Instructions
