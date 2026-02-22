@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Personal Calculator</title>
+    <title>Dog age calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Personal Calculator</h1>
+<h1>Dog Age Calculator</h1>
 
-<form id="calculatorForm">
-    <!-- Add input fields here -->
-</form>
+<p>Name:</p>
+<input id="name">
 
-<div id="output">
-    <!-- Results will be displayed here -->
-</div>
+<p>Dog age (0–16):</p>
+<input id="age" type="number">
+
+<p>Dog size:</p>
+<select id="size">
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+</select>
+
+<br><br>
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+<img id="dogImage">
+
+<p id="lifeLevelText"></p>
+<p id="quote"></p>
 
 <script src="script.js"></script>
 </body>
