@@ -1,106 +1,89 @@
-# Personal Assignment 1
+## Milena Gukengeimer 
+# Dog age calculator - project explanation
 
-## Objective
+## Problem
 
-Create a small **web-based calculator** that takes personal data as input, processes it using a formula of your choice, and displays output.  
+Many people want to know their dog’s age in human years. **Most people use a simple rule: One dog year = seven human years.**
 
+But this method is a myth and it is not accurate.
+Dogs grow very fast in the first years of life and slower later. So the ×7 method gives wrong results.
 This task will help you understand:
 
-- Variables  
-- Conditional logic (`if/else`)  
-- Input → Process → Output flow  
+## Solution
+My project is a Dog Age Calculator.
+This calculator helps people find a more realistic dog age.
+The user enters:
+- Name
+- Dog age
+- Dog size
 
-You are free to choose the type of calculation, but it should be **realistic, measurable, and meaningful**.
+Then the program calculates the dog’s age in human years.
+The calculator also shows:
+- The result
+- A dog picture
+- A quote
 
----
+## Calculation method
+The calculator uses a method similar to the method of the
+American Veterinary Medical Association.
 
-## Assignment Guidelines
+The formula is:
+1 year = 15 human years
+2 years = 24 human years
 
-### Allowed Technologies
+After that:
+**Human age = 24 + (Dog age − 2) × number**
 
-- **HTML** — for form inputs and output display  
-- **CSS** — for styling and layout  
-- **JavaScript** — for logic, calculations, and output  
+Where:
+Small dog = x4
+Medium dog = x5
+Large dog = x6
+This method is more realistic than the ×7 method.
 
----
+## How the program works
 
-### Input Requirements
+The program works in three steps:
+**Input → Process → Output**
 
-Your calculator should take **at least two inputs** from the user. Examples:
+**Input**
+The user enters:
+- Name
+- Age
+- Size
+- Process
 
-- Weight & height → BMI  
-- Power & hours → Electricity cost  
-- Distance & time → Pace  
-- Any other real-world values you choose  
+**JavaScript:**
+Saves values in variables
+Checks if the age is correct
 
-> You are encouraged to **think creatively**. Inputs should be measurable and realistic.
+For example:
+- If age is negative → error
+- If age is more than 16 → error
+Then the program calculates the age.
 
----
+**Output**
+The program shows:
+Greeting
+Example:
+- Hello Anna
+- Dog age
 
-### Process Requirements
-
-Your JavaScript must:
-
-- Store input values in **variables**  
-- Perform **at least one calculation**  
-- Use **if/else conditions** to classify or interpret results  
-- You may define your **own calculation formula**, or use a known index like BMI  
-
----
-
-### Output Requirements
-
-Your page must:
-
-- Display output **directly in HTML** (not just console)  
-- Include a **personalized message** (e.g., “Hello, [Name]”)  
-- Show **calculated value(s)**  
-- Show **category or interpretation** if relevant
----
-
-### Submission Instructions
-
-1. **Fork** this repository  
-2. Create a new branch:  
-3. Complete your assignment in the four files:  
-- `index.html`  
-- `style.css`  
-- `script.js`  
-- `README.md` (update with your description or notes if needed)  
-4. Commit & push your branch to your GitHub fork  
-5. Be ready for an **oral explanation** of your solution  
-
----
-
-### Evaluation & Oral Assessment
-
-During the oral assessment, you should be able to explain:
-
-- What each input represents  
-- How calculations are done  
-- How conditional logic determines categories  
-- What happens if inputs are unusual  
-- How binary or optional output is calculated  
-
-> ⚠️ **Important AI Guidance:**  
-> You **may use AI tools** for suggestions or syntax help, but you must **fully understand and be able to explain every line** of your code.  
-> The **logic, calculations, and outputs must be your own work** — AI is a helper, not a replacement.
+Example:
+Dog age is 40 human years
+Category:
+Young / Adult / Old
+Picture
+Quote
 
 ---
 
-### Creativity & Flexibility
+## Use of AI tools
 
-- You may choose a different calculation than BMI, Electricity, or Pace  
-- You may add **extra outputs or optional features**  
-- You may **style your page creatively**  
+The idea and research for this project were done by me.
+I researched how dog age is calculated and learned that the 7-year rule is a myth.
+I studied a more realistic method and used it in my calculator.
 
-> The goal is **computational thinking, problem-solving, and clear input → process → output understanding**.
+I used ChatGPT to help me write the code because I was not familiar with programming before.
+I described what I wanted to create and asked for help with the code. 
 
----
-
-### Your Submission Should Include
-
-- `index.html` → form placeholder for user inputs and output  
-- `style.css` → styling for the page  
-- `script.js` → JavaScript file for calculations and logic  
-- `README.md` → clear explanation of your project and description of your solution
+I used AI as a tool, but I understand how my program works and I can explain the code.
