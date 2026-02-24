@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космический калькулятор веса</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Weight Calculator</h1>
+        
+        <!-- Ввод имени -->
+        <label for="nameInput">Your Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter name">
+
+        <!-- Ввод веса -->
+        <label for="weightInput">Your Weight (kg):</label>
+        <input type="number" id="weightInput" placeholder="e.g. 70.5">
+
+        <!-- Выбор планеты -->
+        <label for="planetSelect">Select Planet:</label>
+        <select id="planetSelect">
+            <option value="0.16">The Moon</option>
+            <option value="0.38">Mercury</option>
+            <option value="0.91">Venus</option>
+            <option value="0.38">Mars</option>
+            <option value="2.34">Jupiter</option>
+            <option value="1.06">Saturn</option>
+            <option value="0.92">Uranus</option>
+            <option value="1.19">Neptune</option>
+            <option value="0.06">Pluto</option>
+        </select>
+
+        <button id="calculateBtn">Calculate!</button>
+
+        <!-- Блок для вывода результата или ошибок -->
+        <div id="result"></div>
+    </div>
+
+    <!-- Подключаем внешний файл скриптов -->
+    <script src="script.js"></script>
+</body>
+</html>
+/* Основные стили страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px;
+    margin: 0;
+}
+
+/* Контейнер карточки */
+.container {
+    background-color: white; 
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+}
+
+h1 { 
+    font-size: 24px; 
+    text-align: center; 
+    color: #2c3e50; 
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #546e7a;
+    font-weight: 600;
+}
+
+/* Общие стили для полей ввода */
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    box-sizing: border-box; 
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+}
+
+/* Стили кнопки */
+button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 24px;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover { 
+    background-color: #43a047; 
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Блок результата */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e3f2fd; 
+    border-left: 5px solid #2196F3;
+    color: #0d47a1;
+    display: none; 
+    line-height: 1.5;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+/* Стиль для ошибок */
+.error-msg {
+    border-left-color: #f44336 !important;
+    background-color: #ffebee !important;
+    color: #b71c1c !important;
+}
+ * Функция для расчета веса на выбранной планете
+ */
+function calculate() {
+    // Получаем элементы DOM
+    const nameInput = document.getElementById('nameInput');
+    const weightInput = document.getElementById('weightInput');
+    const planetSelect = document.getElementById('planetSelect');
+    const resultDiv = document.getElementById('result');
+
+    const name = nameInput.value.trim();
+    const weight = parseFloat(weightInput.value);
+    const gravity = parseFloat(planetSelect.value);
+    const planetName = planetSelect.options[planetSelect.selectedIndex].text;
+
+    // Сброс стилей результата
+    resultDiv.classList.remove('error-msg');
+    resultDiv.style.display = "none";
+
+    // Проверка на корректность введенных данных
+    if (name === "" || isNaN(weight) || weight <= 0) {
+        resultDiv.innerHTML = "Пожалуйста, введите корректное имя и вес!";
+        resultDiv.classList.add('error-msg');
+        resultDiv.style.display = "block";
+        return;
+    }
+
+    // Математический расчет
+    const finalWeight = weight * gravity;
+
+    // Формирование и вывод результата
+    resultDiv.innerHTML = `<strong>${name}</strong>, your weight on <strong>${planetName}</strong> is <strong>${finalWeight.toFixed(2)} kg</strong>!`;
+    resultDiv.style.display = "block";
+}
+
+// Назначаем обработчик события на кнопку при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('calculateBtn');
+    if (btn) {
+        btn.addEventListener('click', calculate);
+    }
+});
